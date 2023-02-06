@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="kaufm-rechnen" default="pdf">
+
+	<target name="prepare" unless="done">
+		<property environment="env" />
+		<delete includeemptydirs="true">
+		    <fileset dir = "0_TMP" includes = "**/*"/>
+		    <fileset dir = "0_OUT" includes = "**/*"/>
+		    <fileset dir = "0_HUGO/content" includes = "**/*"/>
+		</delete>
+	</target>
+
+	<target name="copy4hugo" unless="done">
+	    <copy todir="0_HUGO/static/images" overwrite="true">
+			<fileset dir="bilder" includes="*.png" />
+			<fileset dir="bilder" includes="*.svg" />
+			<fileset dir="bilder" includes="*.gif" />
+			<fileset dir="bilder" includes="*.jpg" />
+			<fileset dir="bilder" includes="*.pdf" />
+		</copy>
+	</target>
+
+</project>
